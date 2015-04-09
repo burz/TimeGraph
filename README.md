@@ -21,10 +21,14 @@ var data = [
 Suppose that we have an HTML `div` element with id `graph_canvas`, then we can render
 a graph with the following javascript commands:
 ```
-  var margin = { top: 10, bottom: 40, left: 65, right: 20 };
-  var width = 700;
-  var height = 400;
-  var graph = new TimeGraph(margin, width, height, '#graph_canvas');
-  graph.loadGraph(data);
+var margin = { top: 10, bottom: 40, left: 65, right: 20 };
+var width = 700;
+var height = 400;
+var graph = new TimeGraph(margin, width, height, '#graph_canvas');
+graph.loadGraph(data);
+```
+Once a data set has been loaded it is also possible to reload another data set:
+```
+graph.reloadGraph(other_data);
 ```
 Note that d3 and jquery.tipsy are required.
