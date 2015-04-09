@@ -3,19 +3,20 @@
 // The height is the overall height of the svg that will be appended
 // The selector is the jQuery style tag to select the element to append the svg to
 function TimeGraph(margin, width, height, selector) {
-  this.margin = margin;
-  this.width = width - margin.left - margin.right;
-  this.height = height - margin.top - margin.bottom;
-  this.parseDate = d3.time.format('%Y-%m-%dT%H:%M:%S.%LZ').parse;
-  this.x = d3.time.scale().range([0, this.width]);
-  this.y = d3.scale.linear().range([this.height, 0]);
-  this.color = d3.scale.category10();
-  this.xAxis = d3.svg.axis().scale(this.x).orient('bottom');
-  this.yAxis = d3.svg.axis().scale(this.y).orient('left');
-  this.line = d3.svg.line().interpolate('basis')
-    .x(function (d) { return this.x(d.time); })
-    .y(function (d) { return this.y(d.value); });
-  this.svg = d3.select(selector).append('svg')
+  var self = this;
+  self.margin = margin;
+  self.width = width - margin.left - margin.right;
+  self.height = height - margin.top - margin.bottom;
+  self.parseDate = d3.time.format('%Y-%m-%dT%H:%M:%S.%LZ').parse;
+  self.x = d3.time.scale().range([0, self.width]);
+  self.y = d3.scale.linear().range([self.height, 0]);
+  self.color = d3.scale.category10();
+  self.xAxis = d3.svg.axis().scale(self.x).orient('bottom');
+  self.yAxis = d3.svg.axis().scale(self.y).orient('left');
+  self.line = d3.svg.line().interpolate('basis')
+    .x(function (d) { return self.x(d.time); })
+    .y(function (d) { return self.y(d.value); });
+  self.svg = d3.select(selector).append('svg')
     .attr('width', width).attr('height', height).append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 }
