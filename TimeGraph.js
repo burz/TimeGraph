@@ -48,7 +48,14 @@ TimeGraph.prototype.loadGraph = function (data) {
   self.setDomain(data);
   self.svg.append("g").attr("class", "x axis")
     .attr("transform", "translate(0," + (self.height + 10) + ")")
-    .call(self.xAxis);
+    .call(self.xAxis)
+    .selectAll("text")
+    .style("text-anchor", "end")
+    .attr("dx", "-.8em")
+    .attr("dy", ".15em")
+    .attr("transform", function(d) {
+        return "rotate(-65)"
+    });
   self.svg.append("g").attr("class", "y axis")
     .attr("transform", "translate(-10, 0)")
     .call(self.yAxis);
