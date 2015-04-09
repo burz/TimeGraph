@@ -43,7 +43,7 @@ TimeGraph.prototype.loadGraph = function (data) {
   var self = this;
   var names = data.map(function (d) {
     return d.name;
-  }).push("average");
+  });
   self.color.domain(d3.keys(names));
   self.setDomain(data);
   self.svg.append("g").attr("class", "x axis")
