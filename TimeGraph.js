@@ -1,3 +1,12 @@
+/*!
+ * TimeGraph 1.0
+ * https://github.com/burz/TimeGraph
+ *
+ * Copyright 2015 Anthony Burzillo
+ * Released under MIT License
+ * https://github.com/burz/TimeGraph/blob/master/LICENSE
+ */
+
 // The margin is an object with fields top, bottom, left, and right
 // The width is the overall width of the svg that will be appended
 // The height is the overall height of the svg that will be appended
